@@ -24,10 +24,11 @@ init:
 	git clone https://github.com/TelegramMessenger/MTProxy $(MTPROXY_BUILD) && cd $(MTPROXY_BUILD) && make 
 	cp $(MTPROXY_BUILD)/objs/bin/mtproto-proxy ./MTProxy/ && rm -rf $(MTPROXY_BUILD)
 	cd $(MTPROXY_PATH) && curl -s https://core.telegram.org/getProxySecret -o proxy-secret && curl -s https://core.telegram.org/getProxyConfig -o proxy-multi.conf
-	cd $(SS_PATH) && wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh && chmod +x ./shadowsocksR.sh
+	cd $(SS_PATH) && wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh 
+	chmod +x $(SS_PATH)/shadowsocksR.sh
 
 mt-open:
-	$(MTPROXY) -u nobody -p 8888 -H 443 -S $(s) --aes-pwd proxy-secret proxy-multi.conf -M 1
+	$(MTPROXY) -u nobody -p 8888 -H 443 -S $(s) --aes-pwd $(MTPROXY_PATH)/proxy-secret $(MTPROXY_PATH)/proxy-multi.conf -M 1
 
 bbr-test:
 	lsmod |grep 'tcp_bbr'
