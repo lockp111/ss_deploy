@@ -2,18 +2,27 @@
 
 This makefile only support ubuntu/debian
 
+## Build before
+```bash
+$ make dep
+$ make bbr-test
+```
+If tcp_bbr no support
+
+```bash
+$ make bbr-init
+```
+
 ## Build
 ```bash
 $ make init
-$ make bbr-test
 $ make ssr-init
-$ reboot
 ```
 ## MtProxy Open
 ```bash
 $ make mt-open
 ```
-## BBR Open
+## SSR Open
 ```bash
 $ make bbr-open
 ```
