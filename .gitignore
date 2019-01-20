@@ -1,3 +1,7 @@
 SSR/
 MTProxy/
 bbr.sh
+.DS_Store
+docker-install
+proxy-config
+image
