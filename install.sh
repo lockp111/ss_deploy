@@ -32,7 +32,7 @@ runDocker (){
 }
 
 if hash docker 2>/dev/null; then 
-  runDocker
+  runDocker $1 $2
 else 
   git clone https://github.com/lockp111/docker-install.git && sh ./docker-install/install.sh
 fi
