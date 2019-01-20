@@ -22,13 +22,13 @@ runDocker (){
     docker run --privileged -d \
         -p 465:465/tcp \
         -p 465:465/udp \
-        -p 993:993/tcp \
-        -p 993:993/udp \
+        -p 965:965/tcp \
+        -p 965:965/udp \
         --name ssr \
         --network host \
         lockp111/ssr:latest
 
-    docker exec -it ssr python mujson_mgr.py -a -u friend -p 993 -k $1 -G overwall -g 993
+    docker exec -it ssr python mujson_mgr.py -a -u friend -p 965 -k $1 -G overwall -g 965
 }
 
 if hash docker 2>/dev/null; then 
