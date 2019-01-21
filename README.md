@@ -6,3 +6,7 @@ This shell only support ubuntu/debian
 ```bash
 $ sh install.sh
 ```
+### Run
+```bash
+$ sh install.sh <ssr pwd> <mtproto secret>
+```
