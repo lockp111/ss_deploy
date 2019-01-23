@@ -1,4 +1,4 @@
-# MtProxy + BBR + SSR
+# MtProxy + SS2
 
 This shell only support ubuntu/debian
 
@@ -8,5 +8,5 @@ $ sh install.sh
 ```
 ### Run
 ```bash
-$ sh install.sh <ssr pwd> <mtproto secret>
+$ sh install.sh <mtproto secret> <ss2 pwd>
 ```
