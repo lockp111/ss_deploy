@@ -2,32 +2,31 @@
 
 runDocker (){
     if [ ! -n "$1" ]; then
-        echo "Usage: $0 <pwd> <mt secret>" && \
+        echo "Usage: $0 <mt secret> <pwd>" && \
         exit
     fi
 
     if [ ! -n "$2" ]; then
-        echo "Usage: $0 <pwd> <mt secret>" && \
+        echo "Usage: $0 <mt secret> <pwd>" && \
         exit
     fi
 
     docker run -d -p443:443 --name=mtproto-proxy \
         --restart=always \
         -v proxy-config:/data \
-        -e SECRET=$2 \
+        -e SECRET=$1 \
         --name mtproto \
         --network host \
         telegrammessenger/proxy:latest
 
     docker run --privileged -d \
-        -p 465:465/tcp \
-        -p 465:465/udp \
-        -p 995:995/tcp \
-        -p 995:995/udp \
-        --name ssr \
-        lockp111/ssr:latest
-
-    docker exec -it ssr python mujson_mgr.py -a -u friend -p 995 -k $1 -G overwall -g 995
+        -p 989:989/tcp \
+        -p 989:989/udp \
+        --name ss2 \
+        -e PASSWORD=$2 \
+        -e PROTO=AES_256_GCM \
+        -e PORT=989 \
+        lockp111/ss2:latest
 }
 
 if hash docker 2>/dev/null; then 
