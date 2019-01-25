@@ -24,7 +24,7 @@ runDocker (){
         -p 989:989/udp \
         --name ss2 \
         -e PASSWORD=$2 \
-        -e PROTO=AES_256_GCM \
+        -e PROTO=AES-256-GCM \
         -e PORT=989 \
         lockp111/ss2:latest
 }
