@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  ss2:
+    image: lockp111/ss2:latest
+    container_name: ss2
+    stdin_open: true
+    environment: 
+      - PASSWORD=${PASSWORD}
+      - PROTO=AES-256-GCM
+      - PORT=989
+    ports:
+      - "989:989"
+      - "989:989/udp"
+    restart: always
+    logging:
+      options:
+        max-size: "1g"
+
+  proxy:
+    image: lockp111/proxy:latest
+    container_name: proxy
+    stdin_open: true
+    environment: 
+      - PASSWORD=${PASSWORD}
+      - USER=proxy
+      - LISTEN=443
+    ports:
+      - "443:443"
+      - "443:443/udp"
+    restart: always
+    logging:
+      options:
+        max-size: "1g"
