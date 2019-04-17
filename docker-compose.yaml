@@ -18,13 +18,13 @@ services:
         max-size: "1g"
 
   proxy:
-    image: lockp111/proxy:latest
+    image: serjs/go-socks5-proxy:latest
     container_name: proxy
     stdin_open: true
     environment: 
-      - PASSWORD=${PASSWORD}
-      - USER=proxy
-      - LISTEN=443
+      - PROXY_PASSWORD=${PASSWORD}
+      - PROXY_USER=proxy
+      - PROXY_PORT=443
     ports:
       - "443:443"
       - "443:443/udp"
