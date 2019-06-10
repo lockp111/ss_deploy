@@ -1,4 +1,4 @@
-# MtProxy + SS2
+# SS + S5
 
 This shell only support ubuntu/debian
 
