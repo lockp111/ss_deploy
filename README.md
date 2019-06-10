@@ -8,5 +8,5 @@ $ sh install.sh
 ```
 ### Run
 ```bash
-$ sh install.sh <mtproto secret> <ss2 pwd>
+$ sh install.sh <ss pwd>
 ```
