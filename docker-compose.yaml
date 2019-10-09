@@ -4,14 +4,13 @@ services:
   ss2:
     image: lockp111/ss2:latest
     container_name: ss2
-    stdin_open: true
-    environment: 
+    environment:
       - PASSWORD=${PASSWORD}
       - PROTO=AES-256-GCM
-      - PORT=989
+      - PORT=3000
     ports:
-      - "989:989"
-      - "989:989/udp"
+      - "3000:3000"
+      - "3000:3000/udp"
     restart: always
     logging:
       options:
@@ -20,14 +19,13 @@ services:
   proxy:
     image: serjs/go-socks5-proxy:latest
     container_name: proxy
-    stdin_open: true
     environment: 
       - PROXY_PASSWORD=${PASSWORD}
       - PROXY_USER=proxy
-      - PROXY_PORT=443
+      - PROXY_PORT=8080
     ports:
-      - "443:443"
-      - "443:443/udp"
+      - "8080:8080"
+      - "8080:8080/udp"
     restart: always
     logging:
       options:
