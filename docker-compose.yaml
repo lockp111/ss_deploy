@@ -8,6 +8,8 @@ services:
       - PASSWORD=${PASSWORD}
       - PROTO=AES-256-GCM
       - PORT=3000
+      - PLUGIN=v2ray
+      - OPTS=server
     ports:
       - "3000:3000"
       - "3000:3000/udp"
