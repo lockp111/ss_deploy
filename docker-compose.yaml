@@ -1,4 +1,4 @@
-version: "3"
+version: "3.5"
 
 services:
   ss2:
@@ -8,26 +8,11 @@ services:
       - PASSWORD=${PASSWORD}
       - PROTO=AES-256-GCM
       - PORT=3000
-      - PLUGIN=v2ray
+      - PLUGIN=v2ray-plugin
       - OPTS=server
     ports:
       - "3000:3000"
       - "3000:3000/udp"
-    restart: always
-    logging:
-      options:
-        max-size: "1g"
-
-  proxy:
-    image: serjs/go-socks5-proxy:latest
-    container_name: proxy
-    environment: 
-      - PROXY_PASSWORD=${PASSWORD}
-      - PROXY_USER=proxy
-      - PROXY_PORT=8080
-    ports:
-      - "8080:8080"
-      - "8080:8080/udp"
     restart: always
     logging:
       options:
