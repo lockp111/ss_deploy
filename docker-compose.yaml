@@ -14,7 +14,7 @@ services:
       - SERVER_ADDRESS=""
       - SOCKS=":1080"
     ports:
-      - "1080:1080"
+      # - "1080:1080"
       - "3000:3000"
       - "3000:3000/udp"
     restart: always
