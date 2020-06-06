@@ -5,7 +5,7 @@ services:
     image: lockp111/ss2:1.2.0
     container_name: ss2
     environment:
-      - MODE="-s"
+      - MODE=-s
       - PASSWORD=${PASSWORD}
       - PROTO=AES-256-GCM
       - PORT=3000
