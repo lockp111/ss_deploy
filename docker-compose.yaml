@@ -4,6 +4,7 @@ services:
   ss2:
     image: lockp111/ss2:latest
     container_name: ss2
+    # command: ./go-shadowsocks2 -c "ss://AES-256-GCM:${PASSWORD}@${SERVER_ADDRESS}:443" -verbose -socks ":1080" -plugin "v2ray-plugin" -plugin-opts "tls;host={SERVER_ADDRESS}"
     environment:
       - PASSWORD=${PASSWORD}
       - PROTO=AES-256-GCM
@@ -11,22 +12,9 @@ services:
       - PLUGIN=v2ray-plugin
       - OPTS=server
     ports:
+      # - "1080:1080"
       - "3000:3000"
       - "3000:3000/udp"
-    restart: always
-    logging:
-      options:
-        max-size: "1g"
-
-  s5:
-    image: serjs/go-socks5-proxy:latest
-    container_name: s5
-    environment: 
-      - PROXY_USER=s5
-      - PROXY_PASSWORD=${PASSWORD}
-      - PROXY_PORT=1080
-    ports:
-      - "1080:1080"
     restart: always
     logging:
       options:
