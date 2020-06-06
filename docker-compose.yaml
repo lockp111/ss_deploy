@@ -9,8 +9,9 @@ services:
       - PASSWORD=${PASSWORD}
       - PROTO=AES-256-GCM
       - PORT=3000
-      - PLUGIN=v2ray-plugin
+      - PLUGIN=v2ray
       - OPTS=server
+      - SERVER_ADDRESS=""
       - SOCKS=":1080"
     ports:
       - "1080:1080"
