@@ -1,18 +1,19 @@
-version: "3.5"
+version: "3.8"
 
 services:
   ss2:
-    image: lockp111/ss2:latest
+    image: lockp111/ss2:1.2.0
     container_name: ss2
-    # command: ./go-shadowsocks2 -c "ss://AES-256-GCM:${PASSWORD}@${SERVER_ADDRESS}:443" -verbose -socks ":1080" -plugin "v2ray-plugin" -plugin-opts "tls;host={SERVER_ADDRESS}"
     environment:
+      - MODE="-s"
       - PASSWORD=${PASSWORD}
       - PROTO=AES-256-GCM
       - PORT=3000
       - PLUGIN=v2ray-plugin
       - OPTS=server
+      - SOCKS=":1080"
     ports:
-      # - "1080:1080"
+      - "1080:1080"
       - "3000:3000"
       - "3000:3000/udp"
     restart: always
