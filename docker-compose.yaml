@@ -11,8 +11,8 @@ services:
       - PORT=3000
       - PLUGIN=v2ray
       - OPTS=server
-      - SERVER_ADDRESS=""
-      - SOCKS=":1080"
+      - SERVER_ADDRESS=
+      - SOCKS=:1080
     ports:
       # - "1080:1080"
       - "3000:3000"
