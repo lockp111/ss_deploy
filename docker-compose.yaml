@@ -7,7 +7,7 @@ services:
     environment:
       - MODE=-s
       - PASSWORD=${PASSWORD}
-      - PROTO=AES-256-GCM
+      - PROTO=AEAD_CHACHA20_POLY1305
       - PORT=3000
       - PLUGIN=v2ray
       - OPTS=server
