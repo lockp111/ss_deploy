@@ -4,8 +4,8 @@ services:
   ss-rs:
     image: lockp111/ss-rs:1.0.0
     container_name: ss-rs
-    # command: ssserver -s "[::]:3000" -m "chacha20-ietf-poly1305" -k "${PASSWORD}" --plugin "v2ray-plugin" --plugin-opts "server"
-    command: sslocal -b "0.0.0.0:1080" --server-url "${PASSWORD}"
+    command: ssserver -s "[::]:3000" -m "chacha20-ietf-poly1305" -k "${PASSWORD}" --plugin "v2ray-plugin" --plugin-opts "server"
+    # command: sslocal -b "0.0.0.0:1080" --server-url "${PASSWORD}"
     ports:
       # - "465:1080"
       - "3000:3000"
