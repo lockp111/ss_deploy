@@ -1,20 +1,13 @@
 version: "3.5"
 
 services:
-  ss2:
-    image: lockp111/ss2:1.2.0
-    container_name: ss2
-    environment:
-      - MODE=-s
-      - PASSWORD=${PASSWORD}
-      - PROTO=AEAD_CHACHA20_POLY1305
-      - PORT=3000
-      - PLUGIN=v2ray
-      - OPTS=server
-      - SERVER_ADDRESS=
-      - SOCKS=:1080
+  ss-go:
+    image: lockp111/ss-go:1.0.0
+    container_name: ss-go
+    command: ss-go -s "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@:3000" -verbose -plugin v2ray-plugin -plugin-opts server
+    # command: ss-go -c "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@<host>:3000" -verbose -plugin=v2ray-plugin -plugin-opts=tls;host=<host> -socks :1080
     ports:
-      # - "1080:1080"
+      # - "465:1080"
       - "3000:3000"
       - "3000:3000/udp"
     restart: always
