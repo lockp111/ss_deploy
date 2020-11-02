@@ -1,20 +1,13 @@
 version: "3.5"
 
 services:
-  ss2:
-    image: lockp111/ss2:1.2.0
-    container_name: ss2
-    environment:
-      - MODE=-s
-      - PASSWORD=${PASSWORD}
-      - PROTO=AEAD_CHACHA20_POLY1305
-      - PORT=3000
-      - PLUGIN=v2ray
-      - OPTS=server
-      - SERVER_ADDRESS=
-      - SOCKS=:1080
+  ss-rs:
+    image: lockp111/ss-rs:1.0.0
+    container_name: ss-rs
+    # command: ssserver -s "[::]:3000" -m "chacha20-ietf-poly1305" -k "${PASSWORD}" --plugin "v2ray-plugin" --plugin-opts "server"
+    command: sslocal -b "0.0.0.0:1080" --server-url "${PASSWORD}"
     ports:
-      # - "1080:1080"
+      # - "465:1080"
       - "3000:3000"
       - "3000:3000/udp"
     restart: always
