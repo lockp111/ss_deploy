@@ -1,4 +1,4 @@
-# SS + S5
+# SS Deploy
 
 This shell only support ubuntu/debian
 
