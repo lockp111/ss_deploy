@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   ss-go:
-    image: lockp111/ss-go:1.1.0
+    image: lockp111/ss-go:1.2.0
     container_name: ss-go
     command: -s "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@:3000" -verbose -plugin v2ray-plugin -plugin-opts server
     # command: -c "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@<host>:3000" -verbose -plugin=v2ray-plugin -plugin-opts=tls;host=<host> -socks :1080
