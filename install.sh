@@ -6,7 +6,7 @@ runDocker() {
       exit
   fi
 
-  PASSWORD=$1 docker-compose up -d
+  PASSWORD=$1 docker compose up -d
 }
 
 if hash docker 2>/dev/null; then
