@@ -1,0 +1,10 @@
+<domain> {
+	@websockets {
+		header Connection *Upgrade*
+		header Upgrade websocket
+	}
+	route {
+		reverse_proxy @websockets 127.0.0.1:3000
+		respond "Hello, world!"
+	}
+}
