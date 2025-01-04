@@ -1,6 +1,6 @@
 build: down
-	docker build -t lockp111/ssserver-rust:1.0.0 --target ssserver .
-	docker build -t lockp111/sslocal-rust:1.0.0 --target sslocal .
+	docker buildx build --platform linux/amd64 -t lockp111/ssserver-rust:1.0.0 --target ssserver .
+	docker buildx build --platform linux/amd64 -t lockp111/sslocal-rust:1.0.0 --target sslocal .
 	docker image prune -f
 
 push:
