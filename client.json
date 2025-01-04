@@ -1,0 +1,17 @@
+{
+    "local_address": "0.0.0.0",
+    "local_port": 465,
+    "server": "hk.microsoftproxy.xyz",
+    "server_port": 443,
+    "workers": 4,
+    "mode": "tcp_and_udp",
+    "method": "aes-256-gcm",
+    "password": "<password>",
+    "plugin": "v2ray-plugin",
+    "plugin_opts": "tls;host=hk.microsoftproxy.xyz",
+    "plugin_args": [
+        "-fast-open"
+    ],
+    "plugin_mode": "tcp_and_udp",
+    "timeout": 60
+}

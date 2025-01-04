@@ -1,13 +1,13 @@
-version: "3.7"
-
 services:
-  ss-go:
-    image: lockp111/ss-go:1.3.2
-    container_name: ss-go
-    command: -s "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@:3000" -verbose -plugin v2ray-plugin -plugin-opts server
-    # command: -c "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@<host>:3000" -verbose -plugin=v2ray-plugin -plugin-opts=tls;host=<host> -socks :1080
+  ss-rust:
+    image: lockp111/ssserver-rust:1.0.0
+    # image: lockp111/sslocal-rust:1.0.0
+    container_name: ss-rust
+    volumes:
+      - ./server.json:/etc/shadowsocks-rust/config.json
+      # - ./client.json:/etc/shadowsocks-rust/config.json
     ports:
-      # - "465:1080"
+      # - "465:465"
       - "3000:3000"
       - "3000:3000/udp"
     restart: always
