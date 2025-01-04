@@ -8,7 +8,7 @@
     "workers": 4,
     "plugin": "v2ray-plugin",
     "plugin_mode": "tcp_and_udp",
-    "plugin_opts": "host=<host>",
+    "plugin_opts": "mux=256;host=<host>",
     "plugin_args": [
         "-server",
         "-fast-open"
