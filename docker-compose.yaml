@@ -6,10 +6,11 @@ services:
     volumes:
       - ./server.json:/etc/shadowsocks-rust/config.json
       # - ./client.json:/etc/shadowsocks-rust/config.json
-    ports:
-      # - "465:465"
-      - "3000:3000"
-      - "3000:3000/udp"
+    network_mode: host
+    #ports:
+      #- "465:465"
+      #- "3000:3000"
+      #- "3000:3000/udp"
     restart: always
     logging:
       options:
