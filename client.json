@@ -9,9 +9,7 @@
     "password": "<password>",
     "plugin": "v2ray-plugin",
     "plugin_opts": "mux=8;tls;host=<host>",
-    "plugin_args": [
-        "-fast-open"
-    ],
+    "plugin_args": [],
     "plugin_mode": "tcp_and_udp",
     "timeout": 60
 }
