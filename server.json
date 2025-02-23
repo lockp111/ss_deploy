@@ -4,13 +4,12 @@
     "password": "<password>",
     "method": "aes-256-gcm",
     "timeout": 60,
-    "fast_open": true,
+    "fast_open": false,
     "workers": 128,
     "plugin": "v2ray-plugin",
     "plugin_mode": "tcp_and_udp",
     "plugin_opts": "mux=128;host=<host>",
     "plugin_args": [
-        "-server",
-        "-fast-open"
+        "-server"
     ]
 }
